@@ -295,7 +295,7 @@ class adminController extends medoo
 		$id = addslashes($_GET['cus_no']);
 		$database = new admin();
 		$datas['a'] = 'index';
-		$datas['ecuss'] = $database->get_cuss_by_no( $id );
+		$datas['cuss'] = $database->get_cuss_by_no( $id );
 		$this->display( $datas );
 	}
 

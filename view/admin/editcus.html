@@ -17,27 +17,27 @@
 		        <h4 class="modal-title" id="myModalLabel">编 辑 内 容</h4>
 		      </div>
 		      <div class="modal-body" >
-		      	<?php if( isset($ecuss[0]) && is_array( $ecuss[0] ) ): ?>
+		      	<?php if( isset($cuss[0]) && is_array( $cuss[0] ) ): ?>
 		      	<form role="form" id="content-form" action="?c=admin&a=save_content" method="post" >
 				  <div class="form-group">
 				    <label for="title">comp_name</label>
-				    <input type="text" class="form-control" id="title" name="title" placeholder="input comp_name" value="<?=$ecuss[0]['comp_name'];?>" />
+				    <input type="text" class="form-control" id="title" name="title" placeholder="input comp_name" value="<?=$cuss[0]['comp_name'];?>" />
 				  </div>
 				  <div class="form-group">
                                     <label for="title">cus_name</label>
-                                    <input type="text" class="form-control" id="title" name="title" placeholder="input cus_name" value="<?=$ecuss[0]['cus_name'];?>" />
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="input cus_name" value="<?=$cuss[0]['cus_name'];?>" />
                                   </div>
 				<div class="form-group">
                                     <label for="title">phone_no</label>
-                                    <input type="text" class="form-control" id="title" name="title" placeholder="input phone_no" value="<?=$ecuss[0]['phone_no'];?>" />
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="input phone_no" value="<?=$cuss[0]['phone_no'];?>" />
                                   </div>
 				<div class="form-group">
                                     <label for="title">sales_man</label>
-                                    <input type="text" class="form-control" id="title" name="title" placeholder="input sales_man" value="<?=$ecuss[0]['sales_man'];?>" />
+                                    <input type="text" class="form-control" id="title" name="title" placeholder="input sales_man" value="<?=$cuss[0]['sales_man'];?>" />
                                   </div>
 				<div class="form-group">
                                     <label for="title">update_time</label>
-                                    <input type="date" class="form-control" id="title" name="title" placeholder="input update_date" value="<?=$ecuss[0]['update_time'];?>" />
+                                    <input type="date" class="form-control" id="title" name="title" placeholder="input update_date" value="<?=$cuss[0]['update_time'];?>" />
                                   </div>
 
 				
