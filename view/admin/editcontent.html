@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<?php 
+	$admin_head = WROOT . 'view'  . DS . 'admin_head.html';
+	@include_once( $admin_head ); 
+?>
+
+<body>
+<div class="container">
+	<?php 
+		$admin_nav = WROOT . 'view'  . DS . 'admin_nav.html';
+		@include_once( $admin_nav ); 
+	?>
+	<div class="row clearfix" style="margin-top:10px;">
+		<div class="col-md-9 column">
+		      <div class="modal-header">
+		        <h4 class="modal-title" id="myModalLabel">编 辑 内 容</h4>
+		      </div>
+		      <div class="modal-body" >
+		      	<?php if( isset($content[0]) && is_array( $content[0] ) ): ?>
+		      	<form role="form" id="content-form" action="?c=admin&a=save_content" method="post" >
+				  <div class="form-group">
+				    <label for="title">标 题</label>
+				    <input type="text" class="form-control" id="title" name="title" placeholder="输入标题" value="<?=$content[0]['title'];?>" />
+				  </div>
+				  <div class="form-group">
+				    <label for="cat">分 类</label>
+				    <select class="form-control" id="cat" name="cat" >
+				    	<?php if( isset($cat) && is_array( $cat ) ): ?>
+		          		<?php foreach ($cat as $key => $value): ?>
+				    	<option value="<?=$value['id'];?>" 
+				    		<?php if ($value['id']==$content[0]['cat']): ?> 
+				    			selected=\"selected\"
+				    		<?php endif; ?> >
+				    		<?=$value['catname'];?>
+				    	</option>
+				    	<?php endforeach; ?>
+		          		<?php endif; ?>
+				    </select>
+				  </div>
+				  <div class="form-group">
+				    <label for="date">时 间</label>
+				    <input type="date" class="form-control" id="date" name="date" value="<?=$content[0]['date'];?>" />
+				  </div>
+				  <div class="form-group">
+				    <label for="picture">图 片 链 接</label>
+				    <input type="text" class="form-control" id="picture" name="picture" placeholder="图片链接粘贴到此处" value="<?=$content[0]['picture'];?>" />
+				    <img id="new-img" src="<?=$content[0]['picture'];?>" width=60 style="margin-top:10px;" />
+				  </div>
+				  <div class="form-group">
+				    <label for="url">地 址 链 接</label>
+				    <input type="text" class="form-control" id="url" name="url" placeholder="地址链接粘贴到此处" value="<?=$content[0]['url'];?>" />
+				  </div>
+				  <input type="hidden" name="id" value="<?=$content[0]['id'];?>">
+				  <a href="javascript:history.back()" class="btn btn-warning">返 回</a>
+				  <button type="submit" class="btn btn-primary pull-right">提 交</button>
+				</form>
+				<?php else: ?>
+				<p>没找到对应的内容</p>
+			<?php endif; ?>
+		      </div>
+		      <div class="modal-footer">
+		      </div>
+		</div>
+		<?php 
+			$admin_sidebar = WROOT . 'view'  . DS . 'admin_sidebar.html';
+			@include_once( $admin_sidebar ); 
+		?>
+	</div>
+	<?php 
+		$admin_footer = WROOT . 'view'  . DS . 'admin_footer.html';
+		@include_once( $admin_footer ); 
+	?>
+</div>
+
+
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="static/js/scripts.js"></script>
+<script type="text/javascript" src="static/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#picture").change(function(){
+	  $("#new-img").attr("src",$("#picture").val());
+	});
+
+	$('#content-form').validate({
+	    rules: {
+	      title: {
+	        minlength: 2,
+	        required: true
+	      },
+	      date: {
+	        required: true,
+	        required: true
+	      },
+	      picture: {
+	      	minlength: 8,
+	        required: true
+	      },
+	      url: {
+	        minlength: 2,
+	        required: true
+	      }
+	    },
+			highlight: function(element) {
+				$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+			},
+			success: function(element) {
+				element.text('OK!').addClass('valid')
+				.closest('.form-group').removeClass('has-error').addClass('has-success');
+			}
+	});
+});
+</script>
+</body>
+</html>

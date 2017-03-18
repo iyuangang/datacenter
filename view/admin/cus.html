@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<?php 
+	$admin_head = WROOT . 'view'  . DS . 'admin_head.html';
+	@include_once( $admin_head ); 
+?>
+
+
+<body>
+<div class="container">
+	<?php 
+		$admin_nav = WROOT . 'view'  . DS . 'admin_nav.html';
+		@include_once( $admin_nav ); 
+	?>
+	<div class="row clearfix" style="margin-top:40px;">
+		<div class="col-md-9 column">
+			<a href="#modal-form" class="btn btn-sm btn-success pull-right" data-toggle="modal" style="margin-bottom:10px;">新 增 客 户</a>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>
+							cus_no
+						</th>
+						<th>
+							comp_name
+						</th>
+						<th>
+							cus_name
+						</th>
+						<th>
+							phone_no
+						</th>
+						<th>
+							sales_man
+						</th>
+						<th>
+							update_time
+						</th>
+						<th>
+							delete
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php if( isset($cuss) && is_array( $cuss ) ): ?>
+          			<?php foreach ($cuss as $key => $value): ?>
+						<tr>
+							<td>
+								<?=$value['cus_no'];?>
+							</td>
+							<td>
+								<?=$value['comp_name'];?>
+							</td>
+							<td>
+                                                        	<?=$value['cus_name'];?>
+                                                        </td>
+							<td>
+								<?=$value['phone_no'];?>
+							</td>
+							<td>
+								<?=$value['sales_man'];?>
+							</td>
+							<td>
+								<?=$value['update_time'];?>
+							</td>
+
+							<td>
+								<a href="?c=admin&a=editcus&cus_no=<?=$value['cus_no'];?>" class="btn btn-sm btn-primary">编辑</a>
+								<a href="?c=admin&a=delete_cus&id=<?=$value['cus_no'];?>" class="btn btn-sm btn-danger">删除</a>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+		          			<?php endif; ?>
+							</tbody>
+			</table>
+		</div>
+		<?php 
+			$admin_sidebar = WROOT . 'view'  . DS . 'admin_sidebar.html';
+			@include_once( $admin_sidebar ); 
+		?>
+	</div>
+	<?php 
+		$admin_footer = WROOT . 'view'  . DS . 'admin_footer.html';
+		@include_once( $admin_footer ); 
+	?>
+</div>
+
+<div class="modal fade in" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">新 增 客 户</h4>
+      </div>
+      <div class="modal-body" >
+      	<form role="form" id="cus-form" action="?c=admin&a=add_cus" method="post" >
+		  <div class="form-group">
+		    <label for="cus_no">客 户 编 号</label>
+		    <input type="text" class="form-control" id="cus_no" name="cus_no" placeholder="输入客户编号" />
+		    <label for="comp_name">公 司 名 称</label>
+		    <input type="text" class="form-control" id="comp_name" name="comp_name" placeholder="输入公司名称" />
+			<label for="cus_name">顾客姓名</label>
+		    <input type="text" class="form-control" id="cus_name" name="cus_name" placeholder="输入顾客姓名" />
+			<label for="phone_no">电话号码</label>
+		    <input type="tel" class="form-control" id="phone_no" name="phone_no" placeholder="输入顾客电话" />
+			<label for="sales_man">业务员</label>
+		    <input type="text" class="form-control" id="sales_man" name="sales_man" placeholder="输入业务员" />
+			<label for="update_time">建档日期</label>
+		    <input type="date" class="form-control" id="update_time" name="update_time" placeholder="输入建档日期" />
+		  </div>
+		  <button type="submit" class="btn btn-primary pull-right">提 交</button>
+		</form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="static/js/scripts.js"></script>
+<script type="text/javascript" src="static/js/jquery.validate.min.js"></script>
+<link href="static/css/bootstrap-editable.css" rel="stylesheet">
+<script type="text/javascript" src="static/js/bootstrap-editable.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.comp_name').editable({
+	    success: function(response) {
+	    	if (response!='failed') {
+	    		$(this).html(response); 
+	    	}
+	        else{
+	        	alert(response);
+	        }
+	    }
+	});
+	$('#cus-form').validate({
+	    rules: {
+	      catname: {
+	        minlength: 1,
+	        required: true
+	      }
+	    },
+			highlight: function(element) {
+				$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+			},
+			success: function(element) {
+				element.text('OK!').addClass('valid')
+				.closest('.form-group').removeClass('has-error').addClass('has-success');
+			}
+	});
+});
+</script>
+</body>
+</html>

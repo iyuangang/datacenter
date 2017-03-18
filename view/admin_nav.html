@@ -1,0 +1,30 @@
+<div class="row clearfix">
+    <div class="col-md-12 column">
+      <div class="page-header">
+        <h1>
+          TTMAI Data Server <small>Control Panel</small>
+        </h1>
+      </div>
+      <ul class="nav nav-pills">
+	<li <?php if($a=='ord'): ?>class="active"<?php endif; ?>>
+          <a href="?c=admin&a=ord">Order</a>
+        </li>
+	<li <?php if($a=='sal'): ?>class="active"<?php endif; ?>>
+          <a href="?c=admin&a=sal">Sales</a>
+        </li>
+	<li <?php if($a=='cus'): ?>class="active"<?php endif; ?>>
+          <a href="?c=admin&a=cus">客 户</a>
+        </li>
+        <li <?php if($a=='daily_sales'): ?>class="active"<?php endif; ?>>
+          <a href="?c=admin&a=daily_sales">TurnOver</a>
+        </li>
+
+        <li class="dropdown pull-right">
+          <a href="?c=login&a=logout">退 出</a>
+        </li>
+        <li class="dropdown pull-right">
+          <a href="?c=admin&a=passwd">修改密码</a>
+        </li>
+      </ul>
+    </div>
+  </div>
