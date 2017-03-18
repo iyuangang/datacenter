@@ -189,7 +189,7 @@ class admin extends medoo
 	}
 	public function cuss_update( $cuss )
         {
-                $update_cus = $this->update("customers", [
+                $update_num = $this->update("customers", [
                         "comp_name" => $cuss['comp_name'],
                         "cus_name" => $cuss['cus_name'],
                         "phone_no" => $cuss['phone_no'],
@@ -199,7 +199,7 @@ class admin extends medoo
                         "cus_no[=]" => $cuss['cus_no']
                 ]);
 
-                return $update_cus;
+                return $update_num;
         }
 
 

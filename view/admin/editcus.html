@@ -18,7 +18,7 @@
 		      </div>
 		      <div class="modal-body" >
 		      	<?php if( isset($cuss[0]) && is_array( $cuss[0] ) ): ?>
-		      	<form role="form" id="content-form" action="?c=admin&a=save_content" method="post" >
+		      	<form role="form" id="content-form" action="?c=admin&a=save_cuss" method="post" >
 				  <div class="form-group">
 				    <label for="title">comp_name</label>
 				    <input type="text" class="form-control" id="title" name="title" placeholder="input comp_name" value="<?=$cuss[0]['comp_name'];?>" />
