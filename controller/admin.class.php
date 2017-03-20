@@ -313,16 +313,123 @@ class adminController extends medoo
                 if ($result) {
                         echo "<script>";
                         echo "alert('编辑保存成功');";
-                echo "window.location.href = '?c=admin&a=index' ";
+                echo "window.location.href = '?c=admin&a=cus' ";
                 echo "</script>";
                 }
                 else{
                         echo "<script>";
                         echo "alert('编辑保存失败');";
-                echo "window.location.href = '?c=admin&a=index' ";
+                echo "window.location.href = '?c=admin&a=cus' ";
                 echo "</script>";
                 }
         }
+	function add_sales()
+        {
+                header("Content-type: text/html; charset=utf-8");
+                $content['sales_no'] = addslashes($_POST['sales_no']);
+                $content['sales_date'] = addslashes($_POST['sales_date']);
+                $content['comp_name'] = addslashes($_POST['comp_name']);
+                $content['item_no'] = addslashes($_POST['item_no']);
+                $content['item_name'] = addslashes($_POST['item_name']);
+		$content['sales_qty'] = addslashes($_POST['sales_qty']);
+		$content['sales_price'] = addslashes($_POST['sales_price']);
+		$content['sales_man'] = addslashes($_POST['sales_man']);
+
+                $database = new admin();
+                $result = $database->sales_add( $content );
+                if ($result) {
+                        echo "<script>";
+                        echo "alert('添加内容成功');";
+                echo "window.location.href = '?c=admin&a=sal' ";
+                echo "</script>";
+                }
+                else{
+                        echo "<script>";
+                        echo "alert('添加内容失败');";
+                echo "window.location.href = '?c=admin&a=sal' ";
+                echo "</script>";
+                }
+        }
+function delete_sales()
+        {
+                header("Content-type: text/html; charset=utf-8");
+                $sales_no = addslashes($_GET['id']);
+                $database = new admin();
+                $result = $database->sales_delete( 'sales', $sales_no );
+                if ($result == 1) {
+                        echo "<script>";
+                        echo "alert('删除成功');";
+                echo "window.location.href = '?c=admin&a=sal' ";
+                echo "</script>";
+                }
+                else{
+                        echo "<script>";
+                        echo "alert('删除失败，可能是由于该分类下的内容还未全部>删除。');";
+                echo "window.location.href = '?c=admin&a=sal' ";
+                echo "</script>";
+                }
+                header("Content-type: text/html; charset=utf-8");
+
+        }
+
+
+function add_orders()
+        {
+                header("Content-type: text/html; charset=utf-8");
+                $content['order_no'] = addslashes($_POST['order_no']);
+                $content['supplier_name'] = addslashes($_POST['supplier_name']);
+                $content['order_date'] = addslashes($_POST['order_date']);
+                $content['item_no'] = addslashes($_POST['item_no']);
+                $content['item_name'] = addslashes($_POST['item_name']);
+                $content['receive_qty'] = addslashes($_POST['receive_qty']);
+                $content['receive_price'] = addslashes($_POST['receive_price']);
+                $content['sales_man'] = addslashes($_POST['sales_man']);
+
+                $database = new admin();
+                $result = $database->orders_add( $content );
+                if ($result) {
+                        echo "<script>";
+                        echo "alert('添加内容成功');";
+                echo "window.location.href = '?c=admin&a=ord' ";
+                echo "</script>";
+                }
+                else{
+                        echo "<script>";
+                        echo "alert('添加内容失败');";
+                echo "window.location.href = '?c=admin&a=ord' ";
+                echo "</script>";
+                }
+        }
+function delete_orders()
+        {
+                header("Content-type: text/html; charset=utf-8");
+                $order_no = addslashes($_GET['id']);
+                $database = new admin();
+                $result = $database->orders_delete( 'orders', $order_no );
+                if ($result == 1) {
+                        echo "<script>";
+                        echo "alert('删除成功');";
+                echo "window.location.href = '?c=admin&a=ord' ";
+                echo "</script>";
+                }
+                else{
+                        echo "<script>";
+                        echo "alert('删除失败，可能是由于该分类下的内容还未全部>删除。');";
+                echo "window.location.href = '?c=admin&a=ord' ";
+                echo "</script>";
+                }
+                header("Content-type: text/html; charset=utf-8");
+
+        }
+function sales_man()
+        {
+                $database = new admin();
+                $datas['a'] = __FUNCTION__;
+                $datas['salesmann'] = $database->sales_man_list();
+                $this->display( $datas );
+        }
+
+
 
 
 }

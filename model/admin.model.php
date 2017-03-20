@@ -261,5 +261,67 @@ class admin extends medoo
                 return $datas;
         }
 
+        public function sales_add( $content )
+        {
+                $last_sales_id = $this->insert("sales", [
+                        "sales_no" => $content['sales_no'],
+                        "sales_date" => $content['sales_date'],
+                        "comp_name" => $content['comp_name'],
+                        "item_no" => $content['item_no'],
+                        "item_name" => $content['item_name'],
+			"sales_qty" => $content['sales_qty'],
+			"sales_price" => $content['sales_price'],
+			"sales_man" => $content['sales_man']
+                ]);
+
+                return $last_sales_id;
+        }
+	public function sales_delete( $table , $id )
+        {
+                $delete_num = $this->delete($table, [
+                        "sales_no[=]" => $id
+                ]);
+
+                return $delete_num;
+        }
+
+	public function orders_add( $content )
+        {
+                $last_orders_id = $this->insert("orders", [
+                        "order_no" => $content['order_no'],
+                        "supplier_name" => $content['supplier_name'],
+                        "order_date" => $content['order_date'],
+                        "item_no" => $content['item_no'],
+                        "item_name" => $content['item_name'],
+                        "receive_qty" => $content['receive_qty'],
+                        "receive_price" => $content['receive_price'],
+                        "sales_man" => $content['sales_man']
+                ]);
+
+                return $last_orders_id;
+        }
+	public function orders_delete( $table , $id )
+        {
+                $delete_num = $this->delete($table, [
+                        "order_no[=]" => $id
+                ]);
+
+                return $delete_num;
+        }
+
+	public function sales_man_list()
+        {
+                $datas = $this->select("salesman", [
+                        "sales_man_no",
+                        "sales_man_name"
+                ], [    
+                        "ORDER" => "sales_man_no"
+                ]);
+
+                return $datas;
+        }
+
+
+
 
 }

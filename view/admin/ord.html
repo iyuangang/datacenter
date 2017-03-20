@@ -76,7 +76,7 @@
 							</td>
 
 							<td>
-								<a href="?c=admin&a=delete_ord&id=<?=$value['order_no'];?>" class="btn btn-sm btn-danger">删除</a>
+								<a href="?c=admin&a=delete_orders&id=<?=$value['order_no'];?>" class="btn btn-sm btn-danger">删除</a>
 							</td>
 						</tr>
 					<?php endforeach; ?>
@@ -103,20 +103,37 @@
         <h4 class="modal-title" id="myModalLabel">New Order</h4>
       </div>
       <div class="modal-body" >
-      	<form role="form" id="cat-form" action="?c=admin&a=add_cus" method="post" >
+      	<form role="form" id="cat-form" action="?c=admin&a=add_orders" method="post" >
 		  <div class="form-group">
-		    <label for="cus_no">客 户 编 号</label>
-		    <input type="text" class="form-control" id="cus_no" name="cus_no" placeholder="输入客户编号" />
-		    <label for="comp_name">公 司 名 称</label>
-		    <input type="text" class="form-control" id="comp_name" name="comp_name" placeholder="输入公司名称" />
-			<label for="cus_name">顾客姓名</label>
-		    <input type="text" class="form-control" id="cus_name" name="cus_name" placeholder="输入顾客姓名" />
-			<label for="phone_no">电话号码</label>
-		    <input type="tel" class="form-control" id="phone_no" name="phone_no" placeholder="输入顾客电话" />
-			<label for="sales_man">业务员</label>
-		    <input type="text" class="form-control" id="sales_man" name="sales_man" placeholder="输入业务员" />
-			<label for="update_time">建档日期</label>
-		    <input type="date" class="form-control" id="update_time" name="update_time" placeholder="输入建档日期" />
+		    <label for="order_no">order_no</label>
+		    <input type="text" class="form-control" id="order_no" name="order_no" placeholder="input order_no" />
+		    <label for="supplier_name">supplier_name</label>
+		    <input type="text" class="form-control" id="supplier_name" name="supplier_name" placeholder="input supplier_name" />
+			<label for="order_date">order_date</label>
+		    <input type="date" class="form-control" id="order_date" name="order_date" placeholder="input order_date" />
+			<label for="item_no">item_no</label>
+		    <input type="text" class="form-control" id="item_no" name="item_no" placeholder="input item_no" />
+			<label for="item_name">item_name</label>
+		    <input type="text" class="form-control" id="item_name" name="item_name" placeholder="input item_name" />
+			<label for="update_time">receive_qty</label>
+		    <input type="text" class="form-control" id="receive_qty" name="receive_qty" placeholder="receive_qty" />
+			<label for="update_time">receive_price</label>
+                    <input type="text" class="form-control" id="receive_price" name="receive_price" placeholder="receive_price" />
+			<label for="sales_man_name">sales_man_name</label>
+                    <select class="form-control" id="sales_man_name" name="sales_man_name" >
+                                        <?php if( isset($salesmann) && is_array( $salesmann ) ): ?>
+                                        <?php foreach ($salesmann as $key => $value): ?>
+                                        <option value="<?=$value['sales_man_no'];?>" 
+                                                <?php if ($value['sales_man_no']==$content[0]['salesmann']): ?>
+                                                        selected=\"selected\"
+                                                <?php endif; ?> >
+                                                <?=$value['sales_man_name'];?>
+                                        </option>
+                                        <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </select>
+
+
 		  </div>
 		  <button type="submit" class="btn btn-primary pull-right">提 交</button>
 		</form>
