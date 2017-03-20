@@ -195,7 +195,7 @@ class admin extends medoo
                         "phone_no" => $cuss['phone_no'],
                         "sales_man" => $cuss['sales_man'],
                         "update_time" => $cuss['update_time']
-                ], [    
+                ], [
                         "cus_no[=]" => $cuss['cus_no']
                 ]);
 
@@ -239,10 +239,10 @@ class admin extends medoo
 			"sales_man"
 		], [
 			"ORDER" => "order_no DESC",
-			"LIMIT" => 10
-		]);
-		return $datas;
-	}
+            "LIMIT" => 10
+        ]);
+        return $datas;
+    }
         public function sal_list()
         {
                 $datas = $this->select("sales", [
@@ -269,14 +269,14 @@ class admin extends medoo
                         "comp_name" => $content['comp_name'],
                         "item_no" => $content['item_no'],
                         "item_name" => $content['item_name'],
-			"sales_qty" => $content['sales_qty'],
-			"sales_price" => $content['sales_price'],
-			"sales_man" => $content['sales_man']
+            "sales_qty" => $content['sales_qty'],
+            "sales_price" => $content['sales_price'],
+            "sales_man" => $content['sales_man']
                 ]);
 
                 return $last_sales_id;
         }
-	public function sales_delete( $table , $id )
+    public function sales_delete( $table , $id )
         {
                 $delete_num = $this->delete($table, [
                         "sales_no[=]" => $id
@@ -285,7 +285,7 @@ class admin extends medoo
                 return $delete_num;
         }
 
-	public function orders_add( $content )
+    public function orders_add( $content )
         {
                 $last_orders_id = $this->insert("orders", [
                         "order_no" => $content['order_no'],
@@ -300,7 +300,7 @@ class admin extends medoo
 
                 return $last_orders_id;
         }
-	public function orders_delete( $table , $id )
+    public function orders_delete( $table , $id )
         {
                 $delete_num = $this->delete($table, [
                         "order_no[=]" => $id
@@ -309,12 +309,12 @@ class admin extends medoo
                 return $delete_num;
         }
 
-	public function sales_man_list()
+    public function sales_man_list()
         {
                 $datas = $this->select("salesman", [
                         "sales_man_no",
                         "sales_man_name"
-                ], [    
+                ], [
                         "ORDER" => "sales_man_no"
                 ]);
 
