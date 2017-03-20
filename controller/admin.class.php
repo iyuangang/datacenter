@@ -424,12 +424,6 @@ function delete_orders()
 function sales_man()
         {
                 $database = new admin();
-                $datas['a'] = __FUNCTION__;
-                $datas['salesmann'] = $database->sales_man_list();
                 $this->display( $datas );
         }
-
-
-
-
 }

@@ -320,8 +320,4 @@ class admin extends medoo
 
                 return $datas;
         }
-
-
-
-
 }
