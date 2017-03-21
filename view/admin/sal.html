@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<?php
+    <?php
     $admin_head = WROOT . 'view'  . DS . 'admin_head.html';
     @include_once( $admin_head );
-?>
+    ?>
 
 
 <body>
@@ -102,14 +102,14 @@
         <h4 class="modal-title" id="myModalLabel">New Sales</h4>
       </div>
       <div class="modal-body" >
-      	<form role="form" id="cat-form" action="?c=admin&a=add_sales" method="post" >
-		  <div class="form-group">
-		    <label for="sales_no">sales_no</label>
-		    <input type="text" class="form-control" id="sales_no" name="sales_no" placeholder="input sales_no" />
-		    <label for="sales_date">sales_date</label>
-		    <input type="date" class="form-control" id="sales_date" name="sales_date" placeholder="input sales_date" />
-			<label for="comp_name">comp_name</label>
-		    <input type="text" class="form-control" id="comp_name" name="comp_name" placeholder="input comp_name" />
+        <form role="form" id="cat-form" action="?c=admin&a=add_sales" method="post" >
+            <div class="form-group">
+            <label for="sales_no">sales_no</label>
+                <input type="text" class="form-control" id="sales_no" name="sales_no" placeholder="input sales_no" />
+            <label for="sales_date">sales_date</label>
+                <input type="date" class="form-control" id="sales_date" name="sales_date" placeholder="input sales_date" />
+            <label for="comp_name">comp_name</label>
+                <input type="text" class="form-control" id="comp_name" name="comp_name" placeholder="input comp_name" />
             <label for="item_no">item_no</label>
             <input type="tel" class="form-control" id="item_no" name="item_no" placeholder="input item_no" />
             <label for="item_name">item_name</label>
@@ -120,8 +120,6 @@
                     <input type="text" class="form-control" id="sales_price" name="sales_price" placeholder="input sales_price" />
             <label for="sales_man">sales_man</label>
                     <input type="text" class="form-control" id="sales_man" name="sales_man" placeholder="input sales_man" />
-
-
             </div>
             <button type="submit" class="btn btn-primary pull-right">提 交</button>
         </form>

@@ -18,10 +18,10 @@ class adminController extends medoo
 
 		$size_contents = count($datas['contents']);
 		$size_dead = count($datas['dead']);
-		for ($i=0; $i < $size_contents; $i++) { 
+		for ($i=0; $i < $size_contents; $i++) {
 			$datas['contents'][$i]['catname'] = $database->cat_to_name( $datas['contents'][$i]['cat'] );
 		}
-		for ($i=0; $i < $size_dead; $i++) { 
+		for ($i=0; $i < $size_dead; $i++) {
 			$datas['dead'][$i]['catname'] = $database->cat_to_name( $datas['dead'][$i]['cat'] );
 		}
 		$this->display( $datas );
@@ -37,24 +37,11 @@ class adminController extends medoo
 
 	function delete_cat()
 	{
-		header("Content-type: text/html; charset=utf-8");
-		$catid = addslashes($_GET['id']);
-		$database = new admin();
-		$result = $database->data_delete( 'shop_cat', $catid );
-		if ($result == 1) {
-			echo "<script>";
-			echo "alert('删除成功');";
-	      	echo "window.location.href = '?c=admin&a=cat' ";
-	      	echo "</script>";
-		}
-		else{
-			echo "<script>";
-			echo "alert('删除失败，可能是由于该分类下的内容还未全部删除。');";
-	      	echo "window.location.href = '?c=admin&a=cat' ";
+		header("Content-type:";
 	      	echo "</script>";
 		}
 		header("Content-type: text/html; charset=utf-8");
-		
+
 	}
 
 	function delete_content()
@@ -224,7 +211,7 @@ class adminController extends medoo
 		$content['phone_no'] = addslashes($_POST['phone_no']);
 		$content['sales_man'] = addslashes($_POST['sales_man']);
 		$content['update_time'] = addslashes($_POST['update_time']);
-		
+
 		$database = new admin();
 		$result = $database->cus_add( $content );
 		if ($result) {
@@ -260,7 +247,7 @@ class adminController extends medoo
 	      	echo "</script>";
 		}
 		header("Content-type: text/html; charset=utf-8");
-		
+
 	}
 	function daily_sales()
 	{
@@ -424,8 +411,8 @@ function delete_orders()
 function sales_man()
         {
                 $database = new admin();
-		$datas['a'] = __FUNCTION__;
-		$datas['salesmann'] = $database->sales_man_list();
+        $datas['a'] = __FUNCTION__;
+        $datas['salesmann'] = $database->sales_man_list();
                 $this->display( $datas );
         }
 }
