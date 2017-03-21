@@ -238,11 +238,13 @@ class admin extends medoo
 			"receive_price",
 			"sales_man"
 		], [
-			"ORDER" => "order_no DESC",
+            "ORDER" => "order_no DESC",
             "LIMIT" => 10
         ]);
         return $datas;
     }
+
+
         public function sal_list()
         {
                 $datas = $this->select("sales", [

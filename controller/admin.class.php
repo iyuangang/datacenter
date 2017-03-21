@@ -18,10 +18,10 @@ class adminController extends medoo
 
 		$size_contents = count($datas['contents']);
 		$size_dead = count($datas['dead']);
-		for ($i=0; $i < $size_contents; $i++) { 
+		for ($i=0; $i < $size_contents; $i++) {
 			$datas['contents'][$i]['catname'] = $database->cat_to_name( $datas['contents'][$i]['cat'] );
 		}
-		for ($i=0; $i < $size_dead; $i++) { 
+		for ($i=0; $i < $size_dead; $i++) {
 			$datas['dead'][$i]['catname'] = $database->cat_to_name( $datas['dead'][$i]['cat'] );
 		}
 		$this->display( $datas );
@@ -54,7 +54,7 @@ class adminController extends medoo
 	      	echo "</script>";
 		}
 		header("Content-type: text/html; charset=utf-8");
-		
+
 	}
 
 	function delete_content()
@@ -64,48 +64,48 @@ class adminController extends medoo
 		$database = new admin();
 		$result = $database->data_delete( 'shop_content', $contentid );
 		if ($result == 1) {
-			echo "<script>";
-			echo "alert('删除成功');";
-	      	echo "window.location.href = '?c=admin&a=index' ";
-	      	echo "</script>";
-		}
-		else{
-			echo "<script>";
-			echo "alert('删除失败');";
-	      	echo "window.location.href = '?c=admin&a=index' ";
-	      	echo "</script>";
-		}
-	}
+            echo "<script>";
+            echo "alert('删除成功');";
+            echo "window.location.href = '?c=admin&a=index' ";
+            echo "</script>";
+        }
+        else{
+            echo "<script>";
+            echo "alert('删除失败');";
+            echo "window.location.href = '?c=admin&a=index' ";
+            echo "</script>";
+        }
+    }
 
-	function add_cat()
-	{
-		header("Content-type: text/html; charset=utf-8");
-		$catname = addslashes($_POST['catname']);
+    function add_cat()
+    {
+        header("Content-type: text/html; charset=utf-8");
+        $catname = addslashes($_POST['catname']);
 
-		$database = new admin();
-		$result = $database->cat_add( $catname );
-		if ($result) {
-			echo "<script>";
-			echo "alert('添加分类成功');";
-	      	echo "window.location.href = '?c=admin&a=cat' ";
-	      	echo "</script>";
-		}
-		else{
-			echo "<script>";
-			echo "alert('添加分类失败');";
-	      	echo "window.location.href = '?c=admin&a=cat' ";
-	      	echo "</script>";
-		}
-	}
+        $database = new admin();
+        $result = $database->cat_add( $catname );
+        if ($result) {
+            echo "<script>";
+            echo "alert('添加分类成功');";
+            echo "window.location.href = '?c=admin&a=cat' ";
+            echo "</script>";
+        }
+        else{
+            echo "<script>";
+            echo "alert('添加分类失败');";
+            echo "window.location.href = '?c=admin&a=cat' ";
+            echo "</script>";
+        }
+    }
 
-	function add_content()
-	{
-		header("Content-type: text/html; charset=utf-8");
-		$content['title'] = addslashes($_POST['title']);
-		$content['cat'] = addslashes($_POST['cat']);
-		$content['date'] = addslashes($_POST['date']);
-		$content['picture'] = addslashes($_POST['picture']);
-		$content['url'] = addslashes($_POST['url']);
+    function add_content()
+    {
+        header("Content-type: text/html; charset=utf-8");
+        $content['title'] = addslashes($_POST['title']);
+        $content['cat'] = addslashes($_POST['cat']);
+        $content['date'] = addslashes($_POST['date']);
+        $content['picture'] = addslashes($_POST['picture']);
+        $content['url'] = addslashes($_POST['url']);
 
 		$database = new admin();
 		$result = $database->content_add( $content );
@@ -224,7 +224,7 @@ class adminController extends medoo
 		$content['phone_no'] = addslashes($_POST['phone_no']);
 		$content['sales_man'] = addslashes($_POST['sales_man']);
 		$content['update_time'] = addslashes($_POST['update_time']);
-		
+
 		$database = new admin();
 		$result = $database->cus_add( $content );
 		if ($result) {
@@ -251,8 +251,8 @@ class adminController extends medoo
 			echo "<script>";
 			echo "alert('删除成功');";
 	      	echo "window.location.href = '?c=admin&a=cus' ";
-	      	echo "</script>";
-		}
+            echo "</script>";
+        }
 		else{
 			echo "<script>";
 			echo "alert('删除失败，可能是由于该分类下的内容还未全部删除。');";
@@ -260,7 +260,7 @@ class adminController extends medoo
 	      	echo "</script>";
 		}
 		header("Content-type: text/html; charset=utf-8");
-		
+
 	}
 	function daily_sales()
 	{
