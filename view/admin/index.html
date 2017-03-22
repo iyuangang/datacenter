@@ -2,105 +2,105 @@
 <html>
 <meta charset="utf-8">
 <?php 
-	$admin_head = WROOT . 'view'  . DS . 'admin_head.html';
-	@include_once( $admin_head ); 
+$admin_head = WROOT . 'view'  . DS . 'admin_head.html';
+@include_once( $admin_head ); 
 ?>
 
 <body>
 <div class="container">
-	<?php 
-		$admin_nav = WROOT . 'view'  . DS . 'admin_nav.html';
-		@include_once( $admin_nav ); 
-	?>
-	<div class="row clearfix" style="margin-top:10px;">
-		<div class="col-md-9 column">
-			<a href="#modal-form" role="button" class="btn btn-sm btn-success pull-right" data-toggle="modal" style="margin-bottom:10px;">新 增 内 容</a>
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th>
-							id
-						</th>
-						<th>
-							picture
-						</th>
-						<th>
-							product
-						</th>
-						<th>
-							cat
-						</th>
-						<th>
-							date
-						</th>
-						<th>
-							edit
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php if( isset($contents) && is_array( $contents ) ): ?>
-          			<?php foreach ($contents as $key => $value): ?>
-						<tr>
-							<td>
-								<?=$value['id'];?>
-							</td>
-							<td>
-								<img src="<?=$value['picture'];?>" width=50 />
-							</td>
-							<td>
-								<?=$value['title'];?>
-							</td>
-							<td>
-								<?=$value['catname'];?>
-							</td>
-							<td>
-								<?=$value['date'];?>
-							</td>
-							<td>
-								<a href="?c=admin&a=editcontent&id=<?=$value['id'];?>" class="btn btn-sm btn-primary">编辑</a>
-								<a href="?c=admin&a=delete_content&id=<?=$value['id'];?>" class="btn btn-sm btn-danger">删除</a>
-							</td>
-						</tr>
-					<?php endforeach; ?>
-          			<?php endif; ?>
-          			<?php if( isset($dead) && is_array( $dead ) ): ?>
-          			<?php foreach ($dead as $key => $value): ?>
-						<tr class="danger">
-							<td>
-								<?=$value['id'];?>
-							</td>
-							<td>
-								<img src="<?=$value['picture'];?>" width=50 />
-							</td>
-							<td>
-								<?=$value['title'];?>
-							</td>
-							<td>
-								<?=$value['catname'];?>
-							</td>
-							<td>
-								<?=$value['date'];?>
-							</td>
-							<td>
-								<a href="?c=admin&a=editcontent&id=<?=$value['id'];?>" class="btn btn-sm btn-primary">编辑</a>
-								<a href="?c=admin&a=delete_content&id=<?=$value['id'];?>" class="btn btn-sm btn-danger">删除</a>
-							</td>
-						</tr>
-					<?php endforeach; ?>
-          			<?php endif; ?>
-				</tbody>
-			</table>
-		</div>
-		<?php 
-			$admin_sidebar = WROOT . 'view'  . DS . 'admin_sidebar.html';
-			@include_once( $admin_sidebar ); 
-		?>
-	</div>
-	<?php 
-		$admin_footer = WROOT . 'view'  . DS . 'admin_footer.html';
-		@include_once( $admin_footer ); 
-	?>
+<?php 
+$admin_nav = WROOT . 'view'  . DS . 'admin_nav.html';
+@include_once( $admin_nav ); 
+?>
+<div class="row clearfix" style="margin-top:10px;">
+<div class="col-md-9 column">
+<a href="#modal-form" role="button" class="btn btn-sm btn-success pull-right" data-toggle="modal" style="margin-bottom:10px;">新 增 内 容</a>
+<table class="table table-hover">
+<thead>
+<tr>
+<th>
+id
+</th>
+<th>
+picture
+</th>
+<th>
+product
+</th>
+<th>
+cat
+</th>
+<th>
+date
+</th>
+<th>
+edit
+</th>
+</tr>
+</thead>
+<tbody>
+<?php if( isset($contents) && is_array( $contents ) ): ?>
+          <?php foreach ($contents as $key => $value): ?>
+<tr>
+<td>
+<?=$value['id'];?>
+</td>
+<td>
+<img src="<?=$value['picture'];?>" width=50 />
+</td>
+<td>
+<?=$value['title'];?>
+</td>
+<td>
+<?=$value['catname'];?>
+</td>
+<td>
+<?=$value['date'];?>
+</td>
+<td>
+<a href="?c=admin&a=editcontent&id=<?=$value['id'];?>" class="btn btn-sm btn-primary">编辑</a>
+<a href="?c=admin&a=delete_content&id=<?=$value['id'];?>" class="btn btn-sm btn-danger">删除</a>
+</td>
+</tr>
+<?php endforeach; ?>
+          <?php endif; ?>
+          <?php if( isset($dead) && is_array( $dead ) ): ?>
+          <?php foreach ($dead as $key => $value): ?>
+<tr class="danger">
+<td>
+<?=$value['id'];?>
+</td>
+<td>
+<img src="<?=$value['picture'];?>" width=50 />
+</td>
+<td>
+<?=$value['title'];?>
+</td>
+<td>
+<?=$value['catname'];?>
+</td>
+<td>
+<?=$value['date'];?>
+</td>
+<td>
+<a href="?c=admin&a=editcontent&id=<?=$value['id'];?>" class="btn btn-sm btn-primary">编辑</a>
+<a href="?c=admin&a=delete_content&id=<?=$value['id'];?>" class="btn btn-sm btn-danger">删除</a>
+</td>
+</tr>
+<?php endforeach; ?>
+          <?php endif; ?>
+</tbody>
+</table>
+</div>
+<?php 
+$admin_sidebar = WROOT . 'view'  . DS . 'admin_sidebar.html';
+@include_once( $admin_sidebar ); 
+?>
+</div>
+<?php 
+$admin_footer = WROOT . 'view'  . DS . 'admin_footer.html';
+@include_once( $admin_footer ); 
+?>
 </div>
 
 <div class="modal fade in" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none;">
@@ -111,36 +111,36 @@
         <h4 class="modal-title" id="myModalLabel">新 增 内 容</h4>
       </div>
       <div class="modal-body" >
-      	<form role="form" id="content-form" action="?c=admin&a=add_content" method="post" >
-		  <div class="form-group">
-		    <label for="title">标 题</label>
-		    <input type="text" class="form-control" id="title" name="title" placeholder="输入标题" />
-		  </div>
-		  <div class="form-group">
-		    <label for="cat">分 类</label>
-		    <select class="form-control" id="cat" name="cat" >
-		    	<?php if( isset($cat) && is_array( $cat ) ): ?>
-          		<?php foreach ($cat as $key => $value): ?>
-		    	<option value="<?=$value['id'];?>"><?=$value['catname'];?></option>
-		    	<?php endforeach; ?>
-          		<?php endif; ?>
-		    </select>
-		  </div>
-		  <div class="form-group">
-		    <label for="date">时 间</label>
-		    <input type="date" class="form-control" id="date" name="date" />
-		  </div>
-		  <div class="form-group">
-		    <label for="picture">图 片 链 接</label>
-		    <input type="url" class="form-control" id="picture" name="picture" placeholder="图片链接粘贴到此处" />
-		    <img id="new-img" src="static/img/apple-touch-icon-57-precomposed.png" width=60 style="margin-top:10px;" />
-		  </div>
-		  <div class="form-group">
-		    <label for="url">地 址 链 接</label>
-		    <input type="url" class="form-control" id="url" name="url" placeholder="地址链接粘贴到此处">
-		  </div>
-		  <button type="submit" class="btn btn-primary pull-right">提 交</button>
-		</form>
+      <form role="form" id="content-form" action="?c=admin&a=add_content" method="post" >
+  <div class="form-group">
+    <label for="title">标 题</label>
+    <input type="text" class="form-control" id="title" name="title" placeholder="输入标题" />
+  </div>
+  <div class="form-group">
+    <label for="cat">分 类</label>
+    <select class="form-control" id="cat" name="cat" >
+    <?php if( isset($cat) && is_array( $cat ) ): ?>
+          <?php foreach ($cat as $key => $value): ?>
+    <option value="<?=$value['id'];?>"><?=$value['catname'];?></option>
+    <?php endforeach; ?>
+          <?php endif; ?>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="date">时 间</label>
+    <input type="date" class="form-control" id="date" name="date" />
+  </div>
+  <div class="form-group">
+    <label for="picture">图 片 链 接</label>
+    <input type="url" class="form-control" id="picture" name="picture" placeholder="图片链接粘贴到此处" />
+    <img id="new-img" src="static/img/apple-touch-icon-57-precomposed.png" width=60 style="margin-top:10px;" />
+  </div>
+  <div class="form-group">
+    <label for="url">地 址 链 接</label>
+    <input type="url" class="form-control" id="url" name="url" placeholder="地址链接粘贴到此处">
+  </div>
+  <button type="submit" class="btn btn-primary pull-right">提 交</button>
+</form>
       </div>
       <div class="modal-footer">
       </div>
@@ -155,37 +155,37 @@
 <script type="text/javascript" src="static/js/jquery.validate.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$("#picture").change(function(){
-	  $("#new-img").attr("src",$("#picture").val());
-	});
+$("#picture").change(function(){
+  $("#new-img").attr("src",$("#picture").val());
+});
 
-	$('#content-form').validate({
-	    rules: {
-	      title: {
-	        minlength: 2,
-	        required: true
-	      },
-	      date: {
-	        required: true,
-	        required: true
-	      },
-	      picture: {
-	      	minlength: 8,
-	        required: true
-	      },
-	      url: {
-	        minlength: 2,
-	        required: true
-	      }
-	    },
-		highlight: function(element) {
-			$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-		},
-		success: function(element) {
-			element.text('OK!').addClass('valid')
-			.closest('.form-group').removeClass('has-error').addClass('has-success');
-		}
-	});
+$('#content-form').validate({
+    rules: {
+      title: {
+        minlength: 2,
+        required: true
+      },
+      date: {
+        required: true,
+        required: true
+      },
+      picture: {
+      minlength: 8,
+        required: true
+      },
+      url: {
+        minlength: 2,
+        required: true
+      }
+    },
+highlight: function(element) {
+$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+},
+success: function(element) {
+element.text('OK!').addClass('valid')
+.closest('.form-group').removeClass('has-error').addClass('has-success');
+}
+});
 });
 </script>
 </body>

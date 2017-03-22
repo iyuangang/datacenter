@@ -38,16 +38,15 @@
 						</th>
 						<th>
 							receive_price
-						</th>
-						<th>
-                                                        sales_man
-                                                </th>
-
-					</tr>
-				</thead>
-				<tbody>
-					<?php if( isset($ords) && is_array( $ords ) ): ?>
-          			<?php foreach ($ords as $key => $value): ?>
+                        </th>
+                        <th>
+                            sales_man
+                        </th>
+                </tr>
+                </thead>
+                <tbody>
+                    <?php if( isset($ords) && is_array( $ords ) ): ?>
+                    <?php foreach ($ords as $key => $value): ?>
 						<tr>
 							<td>
 								<?=$value['order_no'];?>

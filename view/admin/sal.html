@@ -44,54 +44,53 @@
                         </th>
 
                     </tr>
-				</thead>
-				<tbody>
-					<?php if( isset($slss) && is_array( $slss ) ): ?>
-          			<?php foreach ($slss as $key => $value): ?>
-						<tr>
-							<td>
-								<?=$value['sales_no'];?>
-							</td>
-							<td>
-								<a href="#" class="sales_date" data-type="text" data-pk="<?=$value['sales_no'];?>" data-url="?c=admin&a=update_cus" data-title="input new sales"><?=$value['sales_date'];?></a>
-							</td>
-							<td>
-								<?=$value['comp_name'];?>
-							</td>
-							<td>
-								<?=$value['item_no'];?>
-							</td>
-							<td>
-								<?=$value['item_name'];?>
-							</td>
-							<td>
-								<?=$value['sales_qty'];?>
-							</td>
+</thead>
+<tbody>
+<?php if( isset($slss) && is_array( $slss ) ): ?>
+          <?php foreach ($slss as $key => $value): ?>
+<tr>
 <td>
-                                                                <?=$value['sales_price'];?>
-                                                        </td>
+<?=$value['sales_no'];?>
+</td>
 <td>
-                                                                <?=$value['sales_man'];?>
-                                                        </td>
-
-							<td>
-								<a href="?c=admin&a=delete_sales&id=<?=$value['sales_no'];?>" class="btn btn-sm btn-danger">删除</a>
-							</td>
-						</tr>
-					<?php endforeach; ?>
-          			<?php endif; ?>
-				</tbody>
-			</table>
-		</div>
-		<?php 
-			$admin_sidebar = WROOT . 'view'  . DS . 'admin_sidebar.html';
-			@include_once( $admin_sidebar ); 
-		?>
-	</div>
-	<?php 
-		$admin_footer = WROOT . 'view'  . DS . 'admin_footer.html';
-		@include_once( $admin_footer ); 
-	?>
+<a href="#" class="sales_date" data-type="text" data-pk="<?=$value['sales_no'];?>" data-url="?c=admin&a=update_cus" data-title="input new sales"><?=$value['sales_date'];?></a>
+</td>
+<td>
+<?=$value['comp_name'];?>
+</td>
+<td>
+<?=$value['item_no'];?>
+</td>
+<td>
+<?=$value['item_name'];?>
+</td>
+<td>
+<?=$value['sales_qty'];?>
+</td>
+<td>
+<?=$value['sales_price'];?>
+</td>
+<td>
+<?=$value['sales_man'];?>
+</td>
+<td>
+<a href="?c=admin&a=delete_sales&id=<?=$value['sales_no'];?>" class="btn btn-sm btn-danger">删除</a>
+</td>
+</tr>
+<?php endforeach; ?>
+<?php endif; ?>
+</tbody>
+</table>
+</div>
+<?php 
+$admin_sidebar = WROOT . 'view'  . DS . 'admin_sidebar.html';
+@include_once( $admin_sidebar ); 
+?>
+</div>
+<?php 
+$admin_footer = WROOT . 'view'  . DS . 'admin_footer.html';
+@include_once( $admin_footer ); 
+?>
 </div>
 
 <div class="modal fade in" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none;">
@@ -101,15 +100,15 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h4 class="modal-title" id="myModalLabel">New Sales</h4>
       </div>
-      <div class="modal-body" >
-      	<form role="form" id="cat-form" action="?c=admin&a=add_sales" method="post" >
-		  <div class="form-group">
-		    <label for="sales_no">sales_no</label>
-		    <input type="text" class="form-control" id="sales_no" name="sales_no" placeholder="input sales_no" />
-		    <label for="sales_date">sales_date</label>
-		    <input type="date" class="form-control" id="sales_date" name="sales_date" placeholder="input sales_date" />
-			<label for="comp_name">comp_name</label>
-		    <input type="text" class="form-control" id="comp_name" name="comp_name" placeholder="input comp_name" />
+        <div class="modal-body" >
+        <form role="form" id="cat-form" action="?c=admin&a=add_sales" method="post" >
+            <div class="form-group">
+            <label for="sales_no">sales_no</label>
+            <input type="text" class="form-control" id="sales_no" name="sales_no" placeholder="input sales_no" />
+            <label for="sales_date">sales_date</label>
+            <input type="date" class="form-control" id="sales_date" name="sales_date" placeholder="input sales_date" />
+            <label for="comp_name">comp_name</label>
+            <input type="text" class="form-control" id="comp_name" name="comp_name" placeholder="input comp_name" />
             <label for="item_no">item_no</label>
             <input type="tel" class="form-control" id="item_no" name="item_no" placeholder="input item_no" />
             <label for="item_name">item_name</label>
@@ -117,17 +116,15 @@
             <label for="sales_qty">sales_qty</label>
             <input type="text" class="form-control" id="sales_qty" name="sales_qty" placeholder="input sales_qty" />
             <label for="sales_price">sales_price</label>
-                    <input type="text" class="form-control" id="sales_price" name="sales_price" placeholder="input sales_price" />
+            <input type="text" class="form-control" id="sales_price" name="sales_price" placeholder="input sales_price" />
             <label for="sales_man">sales_man</label>
-                    <input type="text" class="form-control" id="sales_man" name="sales_man" placeholder="input sales_man" />
-
-
+            <input type="text" class="form-control" id="sales_man" name="sales_man" placeholder="input sales_man" />
             </div>
             <button type="submit" class="btn btn-primary pull-right">提 交</button>
         </form>
-      </div>
-      <div class="modal-footer">
-      </div>
+    </div>
+    <div class="modal-footer">
+    </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div>
@@ -141,18 +138,18 @@
 <p style="text-align: center;">
 <span style="font-size: 24px;">New Sales</span>
 </p><table class="table table-bordered">
-<tbody>
-<tr class="firstRow">
-<td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);">文本框</td>
-<td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="227">
-<input type="text" value="order_no" name="data_1" style="text-align: left; width: 150px;"></td>
-<td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="85">下拉菜单</td>
-<td valign="top" style="border-color: rgb(221, 221, 221);" width="312">
-<span leipiplugins="select">
-<select name="data_2" title="下拉菜单" leipiplugins="select" size="1" orgwidth="150" style="width: 150px;">
-<option value="下拉">下拉</option>
-<option value="菜单">菜单</option>
-</select>&nbsp;&nbsp;
+    <tbody>
+        <tr class="firstRow">
+            <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);">文本框</td>
+            <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="227">
+            <input type="text" value="order_no" name="data_1" style="text-align: left; width: 150px;"></td>
+            <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="85">下拉菜单</td>
+            <td valign="top" style="border-color: rgb(221, 221, 221);" width="312">
+            <span leipiplugins="select">
+            <select name="data_2" title="下拉菜单" leipiplugins="select" size="1" orgwidth="150" style="width: 150px;">
+                <option value="下拉">下拉</option>
+                <option value="菜单">菜单</option>
+            </select>&nbsp;&nbsp;
 </span>
 </td>
 </tr>
