@@ -1,243 +1,243 @@
 <!DOCTYPE html>
 <html>
-<?php
+    <?php
     $admin_head = WROOT . 'view'  . DS . 'admin_head.html';
     @include_once( $admin_head );
-?>
-
-
-<body>
-<div class="container">
-    <?php
-        $admin_nav = WROOT . 'view'  . DS . 'admin_nav.html';
-        @include_once( $admin_nav );
     ?>
-    <div class="row clearfix" style="margin-top:40px;">
-        <div class="col-md-9 column">
-            <a href="#modal-form" class="btn btn-sm btn-success pull-right" data-toggle="modal" style="margin-bottom:10px;">New Sales</a>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>
-                            Sales_no
-                        </th>
-                        <th>
-                            Sales_date
-                        </th>
-                        <th>
-                            comp_name
-                        </th>
-                        <th>
-                            item_no
-                        </th>
-                        <th>
-                            item_name
-                        </th>
-                        <th>
-                            Sales_qty
-                        </th>
-                        <th>
-                            Sales_price
-                        </th>
-                        <th>
-                            Sales_man
-                        </th>
-
-                    </tr>
-</thead>
-<tbody>
-<?php if( isset($slss) && is_array( $slss ) ): ?>
-          <?php foreach ($slss as $key => $value): ?>
-<tr>
-<td>
-<?=$value['sales_no'];?>
-</td>
-<td>
-<a href="#" class="sales_date" data-type="text" data-pk="<?=$value['sales_no'];?>" data-url="?c=admin&a=update_cus" data-title="input new sales"><?=$value['sales_date'];?></a>
-</td>
-<td>
-<?=$value['comp_name'];?>
-</td>
-<td>
-<?=$value['item_no'];?>
-</td>
-<td>
-<?=$value['item_name'];?>
-</td>
-<td>
-<?=$value['sales_qty'];?>
-</td>
-<td>
-<?=$value['sales_price'];?>
-</td>
-<td>
-<?=$value['sales_man'];?>
-</td>
-<td>
-<a href="?c=admin&a=delete_sales&id=<?=$value['sales_no'];?>" class="btn btn-sm btn-danger">删除</a>
-</td>
-</tr>
-<?php endforeach; ?>
-<?php endif; ?>
-</tbody>
-</table>
-</div>
-<?php 
-$admin_sidebar = WROOT . 'view'  . DS . 'admin_sidebar.html';
-@include_once( $admin_sidebar ); 
-?>
-</div>
-<?php 
-$admin_footer = WROOT . 'view'  . DS . 'admin_footer.html';
-@include_once( $admin_footer ); 
-?>
-</div>
-
-<div class="modal fade in" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none;">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title" id="myModalLabel">New Sales</h4>
-      </div>
-        <div class="modal-body" >
-        <form role="form" id="cat-form" action="?c=admin&a=add_sales" method="post" >
-            <div class="form-group">
-            <label for="sales_no">sales_no</label>
-            <input type="text" class="form-control" id="sales_no" name="sales_no" placeholder="input sales_no" />
-            <label for="sales_date">sales_date</label>
-            <input type="date" class="form-control" id="sales_date" name="sales_date" placeholder="input sales_date" />
-            <label for="comp_name">comp_name</label>
-            <input type="text" class="form-control" id="comp_name" name="comp_name" placeholder="input comp_name" />
-            <label for="item_no">item_no</label>
-            <input type="tel" class="form-control" id="item_no" name="item_no" placeholder="input item_no" />
-            <label for="item_name">item_name</label>
-            <input type="text" class="form-control" id="item_name" name="item_name" placeholder="input_item_name" />
-            <label for="sales_qty">sales_qty</label>
-            <input type="text" class="form-control" id="sales_qty" name="sales_qty" placeholder="input sales_qty" />
-            <label for="sales_price">sales_price</label>
-            <input type="text" class="form-control" id="sales_price" name="sales_price" placeholder="input sales_price" />
-            <label for="sales_man">sales_man</label>
-            <input type="text" class="form-control" id="sales_man" name="sales_man" placeholder="input sales_man" />
-            </div>
-            <button type="submit" class="btn btn-primary pull-right">提 交</button>
-        </form>
-    </div>
-    <div class="modal-footer">
-    </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div>
 
 
-<div class="modal fade in" id="modal-form1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none;">
-  <div class="modal-dialog">
-    <div class="container">
-<p style="text-align: center;">
-<br></p>
-<p style="text-align: center;">
-<span style="font-size: 24px;">New Sales</span>
-</p><table class="table table-bordered">
-    <tbody>
-        <tr class="firstRow">
-            <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);">文本框</td>
-            <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="227">
-            <input type="text" value="order_no" name="data_1" style="text-align: left; width: 150px;"></td>
-            <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="85">下拉菜单</td>
-            <td valign="top" style="border-color: rgb(221, 221, 221);" width="312">
-            <span leipiplugins="select">
-            <select name="data_2" title="下拉菜单" leipiplugins="select" size="1" orgwidth="150" style="width: 150px;">
-                <option value="下拉">下拉</option>
-                <option value="菜单">菜单</option>
-            </select>&nbsp;&nbsp;
-</span>
-</td>
-</tr>
-<tr>
-<td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);">单选</td>
-<td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="41">
-<input type="radio" name="data_3" value="单选1" checked="checked">单选1&nbsp;
-<input type="radio" name="data_3" value="单选2">单选2&nbsp;</td>
-<td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="85">复选</td>
-<td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="312">
-<input type="checkbox" name="data_4" value="复选1" checked="checked">复选1&nbsp;
-<input type="checkbox" name="data_5" value="复选2" checked="checked">复选2&nbsp;
-<input type="checkbox" name="data_6" value="复选3">复选3&nbsp;
-</td>
-</tr>
-<tr>
-<td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);">date</td>
-<td valign="top" style="border-color: rgb(221, 221, 221);" width="41">
-<input name="data_7" type="text" value="2017年3月16日" title="宏控件" leipiplugins="macros" orgtype="sys_date_cn" orghide="0" orgfontsize="12" orgwidth="150" style="font-size: 12px; width: 150px;"></td>
+    <body>
+        <div class="container">
+            <?php
+             $admin_nav = WROOT . 'view'  . DS . 'admin_nav.html';
+             @include_once( $admin_nav );
+             ?>
+             <div class="row clearfix" style="margin-top:40px;">
+                 <div class="col-md-9 column">
+                     <a href="#modal-form" class="btn btn-sm btn-success pull-right" data-toggle="modal" style="margin-bottom:10px;">New Sales</a>
+                     <table class="table table-hover">
+                         <thead>
+                             <tr>
+                                 <th>
+                                     Sales_no
+                                 </th>
+                                 <th>
+                                     Sales_date
+                                 </th>
+                                 <th>
+                                     comp_name
+                                 </th>
+                                 <th>
+                                     item_no
+                                 </th>
+                                 <th>
+                                     item_name
+                                 </th>
+                                 <th>
+                                     Sales_qty
+                                 </th>
+                                 <th>
+                                     Sales_price
+                                 </th>
+                                 <th>
+                                     Sales_man
+                                 </th>
 
-</tr>
-</tbody>
-</table>
-<tfooter>
-                                  </tfooter>
-<table id="data_9_table" cellspacing="0" class="table table-bordered table-condensed" style="width: 100%;"><thead>
-                                        <tr><th colspan="6">
-                                        采购商品列表
-                                            <span class="pull-right">
-                                                <button class="btn btn-small btn-success" type="button" onclick="tbAddRow(&#39;data_9&#39;)">添加一行</button>
-                                            </span>
-                                        </th></tr>
-                                        <tr>
-                                          </tr><tr><th>商品名称</th><th>数量</th><th>单价</th><th>小计</th><th>描述</th><th>操作</th></tr>
-                                        </thead>
-<tbody>
-<tr class="template">
-<td>
-<input class="input-medium" type="text" name="data_9[0][]" value=""> 
-</td>
-<td>
-<input class="input-medium" type="text" name="data_9[1][]" value=""> 
-</td>
-<td>
-<input class="input-medium" type="text" name="data_9[2][]" value=""> 
-</td>
-<td>
-<input class="input-medium" onblur="sum_total(&#39;data_9[3]&#39;)" type="text" name="data_9[3][]" value=""> 元</td>
-<td>
-<input class="input-medium" type="text" name="data_9[4][]" value=""> 
-</td>
-<td>
-<a href="javascript:void(0);" onclick="fnDeleteRow(this)" class="delrow hide">删除</a>
-</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>合计：<input type="text" class="input-small" name="data_9[3][total]" onblur="sum_total(&#39;data_9[3][]&#39;)" value=""> 元</td>
-<td>
-</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<button type="submit" class="btn btn-primary pull-right">提 交</button>
-</div><!--end container-->
-  </div><!-- /.modal-dialog -->
-</div>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <?php if( isset($slss) && is_array( $slss ) ): ?>
+                             <?php foreach ($slss as $key => $value): ?>
+                             <tr>
+                                 <td>
+                                     <?=$value['sales_no'];?>
+                                 </td>
+                                 <td>
+                                     <a href="#" class="sales_date" data-type="text" data-pk="<?=$value['sales_no'];?>" data-url="?c=admin&a=update_cus" data-title="input new sales"><?=$value['sales_date'];?></a>
+                                 </td>
+                                 <td>
+                                     <?=$value['comp_name'];?>
+                                 </td>
+                                 <td>
+                                     <?=$value['item_no'];?>
+                                 </td>
+                                 <td>
+                                     <?=$value['item_name'];?>
+                                 </td>
+                                 <td>
+                                     <?=$value['sales_qty'];?>
+                                 </td>
+                                 <td>
+                                     <?=$value['sales_price'];?>
+                                 </td>
+                                 <td>
+                                     <?=$value['sales_man'];?>
+                                 </td>
+                                 <td>
+                                     <a href="?c=admin&a=delete_sales&id=<?=$value['sales_no'];?>" class="btn btn-sm btn-danger">删除</a>
+                                 </td>
+                             </tr>
+                             <?php endforeach; ?>
+                             <?php endif; ?>
+                         </tbody>
+                     </table>
+                 </div>
+                 <?php 
+                                                                                                   $admin_sidebar = WROOT . 'view'  . DS . 'admin_sidebar.html';
+                                                                                                   @include_once( $admin_sidebar ); 
+                                                                                                   ?>
+             </div>
+             <?php 
+                                                                                                   $admin_footer = WROOT . 'view'  . DS . 'admin_footer.html';
+                                                                                                   @include_once( $admin_footer ); 
+                                                                                                   ?>
+        </div>
+
+        <div class="modal fade in" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">New Sales</h4>
+                    </div>
+                    <div class="modal-body" >
+                        <form role="form" id="cat-form" action="?c=admin&a=add_sales" method="post" >
+                            <div class="form-group">
+                                <label for="sales_no">sales_no</label>
+                                <input type="text" class="form-control" id="sales_no" name="sales_no" placeholder="input sales_no" />
+                                <label for="sales_date">sales_date</label>
+                                <input type="date" class="form-control" id="sales_date" name="sales_date" placeholder="input sales_date" />
+                                <label for="comp_name">comp_name</label>
+                                <input type="text" class="form-control" id="comp_name" name="comp_name" placeholder="input comp_name" />
+                                <label for="item_no">item_no</label>
+                                <input type="tel" class="form-control" id="item_no" name="item_no" placeholder="input item_no" />
+                                <label for="item_name">item_name</label>
+                                <input type="text" class="form-control" id="item_name" name="item_name" placeholder="input_item_name" />
+                                <label for="sales_qty">sales_qty</label>
+                                <input type="text" class="form-control" id="sales_qty" name="sales_qty" placeholder="input sales_qty" />
+                                <label for="sales_price">sales_price</label>
+                                <input type="text" class="form-control" id="sales_price" name="sales_price" placeholder="input sales_price" />
+                                <label for="sales_man">sales_man</label>
+                                <input type="text" class="form-control" id="sales_man" name="sales_man" placeholder="input sales_man" />
+                            </div>
+                            <button type="submit" class="btn btn-primary pull-right">提 交</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
 
 
-<script type="text/javascript" charset="utf-8" src="formdesign/jquery-1.7.2.min.js"></script> 
-<script type="text/javascript" charset="utf-8" src="formdesign/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8" src="formdesign/ueditor.all.js"> </script>
-<script type="text/javascript" charset="utf-8" src="formdesign/zh-cn.js"></script>
-<script type="text/javascript" src="static/js/jquery.min.js"></script>
-<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="static/js/scripts.js"></script>
-<script type="text/javascript" src="static/js/jquery.validate.min.js"></script>
-<link href="static/css/bootstrap-editable.css" rel="stylesheet">
-<script type="text/javascript" src="static/js/bootstrap-editable.min.js"></script>
-<script type="text/javascript">
+        <div class="modal fade in" id="modal-form1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none;">
+            <div class="modal-dialog">
+                <div class="container">
+                    <p style="text-align: center;">
+                    <br></p>
+                    <p style="text-align: center;">
+                    <span style="font-size: 24px;">New Sales</span>
+                    </p><table class="table table-bordered">
+                        <tbody>
+                            <tr class="firstRow">
+                                <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);">文本框</td>
+                                <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="227">
+                                    <input type="text" value="order_no" name="data_1" style="text-align: left; width: 150px;"></td>
+                                <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="85">下拉菜单</td>
+                                <td valign="top" style="border-color: rgb(221, 221, 221);" width="312">
+                                    <span leipiplugins="select">
+                                        <select name="data_2" title="下拉菜单" leipiplugins="select" size="1" orgwidth="150" style="width: 150px;">
+                                            <option value="下拉">下拉</option>
+                                            <option value="菜单">菜单</option>
+                                        </select>&nbsp;&nbsp;
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);">单选</td>
+                                <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="41">
+                                    <input type="radio" name="data_3" value="单选1" checked="checked">单选1&nbsp;
+                                    <input type="radio" name="data_3" value="单选2">单选2&nbsp;</td>
+                                <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="85">复选</td>
+                                <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);" width="312">
+                                    <input type="checkbox" name="data_4" value="复选1" checked="checked">复选1&nbsp;
+                                    <input type="checkbox" name="data_5" value="复选2" checked="checked">复选2&nbsp;
+                                    <input type="checkbox" name="data_6" value="复选3">复选3&nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" style="word-break: break-all; border-color: rgb(221, 221, 221);">date</td>
+                                <td valign="top" style="border-color: rgb(221, 221, 221);" width="41">
+                                    <input name="data_7" type="text" value="2017年3月16日" title="宏控件" leipiplugins="macros" orgtype="sys_date_cn" orghide="0" orgfontsize="12" orgwidth="150" style="font-size: 12px; width: 150px;"></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <tfooter>
+                    </tfooter>
+                    <table id="data_9_table" cellspacing="0" class="table table-bordered table-condensed" style="width: 100%;"><thead>
+                            <tr><th colspan="6">
+                                    采购商品列表
+                                    <span class="pull-right">
+                                        <button class="btn btn-small btn-success" type="button" onclick="tbAddRow(&#39;data_9&#39;)">添加一行</button>
+                                    </span>
+                                </th></tr>
+                                <tr>
+                                </tr><tr><th>商品名称</th><th>数量</th><th>单价</th><th>小计</th><th>描述</th><th>操作</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr class="template">
+                                <td>
+                                    <input class="input-medium" type="text" name="data_9[0][]" value=""> 
+                                </td>
+                                <td>
+                                    <input class="input-medium" type="text" name="data_9[1][]" value=""> 
+                                </td>
+                                <td>
+                                    <input class="input-medium" type="text" name="data_9[2][]" value=""> 
+                                </td>
+                                <td>
+                                    <input class="input-medium" onblur="sum_total(&#39;data_9[3]&#39;)" type="text" name="data_9[3][]" value=""> 元</td>
+                                <td>
+                                    <input class="input-medium" type="text" name="data_9[4][]" value=""> 
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0);" onclick="fnDeleteRow(this)" class="delrow hide">删除</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>合计：<input type="text" class="input-small" name="data_9[3][total]" onblur="sum_total(&#39;data_9[3][]&#39;)" value=""> 元</td>
+                                <td>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="submit" class="btn btn-primary pull-right">提 交</button>
+                </div><!--end container-->
+            </div><!-- /.modal-dialog -->
+        </div>
+
+
+        <script type="text/javascript" charset="utf-8" src="formdesign/jquery-1.7.2.min.js"></script> 
+        <script type="text/javascript" charset="utf-8" src="formdesign/ueditor.config.js"></script>
+        <script type="text/javascript" charset="utf-8" src="formdesign/ueditor.all.js"> </script>
+        <script type="text/javascript" charset="utf-8" src="formdesign/zh-cn.js"></script>
+        <script type="text/javascript" src="static/js/jquery.min.js"></script>
+        <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="static/js/scripts.js"></script>
+        <script type="text/javascript" src="static/js/jquery.validate.min.js"></script>
+        <link href="static/css/bootstrap-editable.css" rel="stylesheet">
+        <script type="text/javascript" src="static/js/bootstrap-editable.min.js"></script>
+        <script type="text/javascript">
 $(document).ready(function(){
     $('.cat_name').editable({
         success: function(response) {
@@ -252,61 +252,61 @@ $(document).ready(function(){
     $('#cat-form').validate({
         rules: {
             catname: {
-            minlength: 1,
-            required: true
+                minlength: 1,
+                required: true
             }
         },
-            highlight: function(element) {
-                $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-            },
-            success: function(element) {
-                element.text('OK!').addClass('valid')
-            .closest('.form-group').removeClass('has-error').addClass('has-success');
-            }
+        highlight: function(element) {
+            $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+        },
+        success: function(element) {
+            element.text('OK!').addClass('valid')
+                .closest('.form-group').removeClass('has-error').addClass('has-success');
+        }
     });
 });
-</script>
-<script>
-                            function tbAddRow(dname)
-                            {
-                                var sTbid = dname+"_table";
-                                $("#"+sTbid+" .template")
-                                    //连同事件一起复制
-                                    .clone(true)
-                                    //去除模板标记
-                                    .removeClass("template")
-                                    //修改内部元素
-                                    .find(".delrow").show().end()
-                                    .find("input").val("").end()
-                                    .find("textarea").val("").end()
-                                    //插入表格
-                                   .appendTo($("#"+sTbid));
-                            }
-                            //统计
-                            function sum_total(dname,e){
-                                var tsum = 0;
-                                $('input[name="'+dname+'[]"]').each(function(){
-                                    var t = parseFloat($(this).val());
-                                    if(!t) t=0;
-                                    if(t) tsum +=t;
-                                    $(this).val(t);
-                                });
-                                $('input[name="'+dname+'[total]"]').val(tsum);
+        </script>
+        <script>
+function tbAddRow(dname)
+{
+    var sTbid = dname+"_table";
+    $("#"+sTbid+" .template")
+        //连同事件一起复制
+        .clone(true)
+        //去除模板标记
+        .removeClass("template")
+        //修改内部元素
+        .find(".delrow").show().end()
+        .find("input").val("").end()
+        .find("textarea").val("").end()
+        //插入表格
+        .appendTo($("#"+sTbid));
+}
+//统计
+function sum_total(dname,e){
+    var tsum = 0;
+    $('input[name="'+dname+'[]"]').each(function(){
+        var t = parseFloat($(this).val());
+        if(!t) t=0;
+        if(t) tsum +=t;
+        $(this).val(t);
+    });
+    $('input[name="'+dname+'[total]"]').val(tsum);
 
-                            }
+}
 
-                            /*删除tr*/
-                            function fnDeleteRow(obj)
-                            {
-                                var sTbid = "data_9_table";
-                                var oTable = document.getElementById(sTbid);
-                                while(obj.tagName !="TR")
-                                {
-                                    obj = obj.parentNode;
-                                }
-                                oTable.deleteRow(obj.rowIndex);
-                            }
+/*删除tr*/
+function fnDeleteRow(obj)
+{
+    var sTbid = "data_9_table";
+    var oTable = document.getElementById(sTbid);
+    while(obj.tagName !="TR")
+    {
+        obj = obj.parentNode;
+    }
+    oTable.deleteRow(obj.rowIndex);
+}
 
-</script>
-</body>
+        </script>
+    </body>
 </html>

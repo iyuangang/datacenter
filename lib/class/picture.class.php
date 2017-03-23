@@ -10,19 +10,19 @@
  */
 class picture {
 
-  /**
-   * @var array $data
-   */
-  protected $data;
+    /**
+     * @var array $data
+     */
+    protected $data;
 
-  /**
-   * @var int $itemsPerPage
-   */
-  protected $itemsPerPage;
+    /**
+     * @var int $itemsPerPage
+     */
+    protected $itemsPerPage;
 
-  function __construct($data, $itemsPerPage) {
-    $this->data = $data;
-    $this->itemsPerPage = $itemsPerPage;
+    function __construct($data, $itemsPerPage) {
+        $this->data = $data;
+        $this->itemsPerPage = $itemsPerPage;
   }
 
   /**
@@ -31,9 +31,9 @@ class picture {
    * @return array
    */
   public function getPage($page=1) {
-    if ($page > 0 && $page <= $this->getNumberOfPages()) {
-      $startOffset = ($page - 1) * $this->itemsPerPage;
-      return array_slice($this->data, $startOffset, $this->itemsPerPage);
+      if ($page > 0 && $page <= $this->getNumberOfPages()) {
+          $startOffset = ($page - 1) * $this->itemsPerPage;
+          return array_slice($this->data, $startOffset, $this->itemsPerPage);
     }
     return array();
   }
@@ -43,6 +43,6 @@ class picture {
    * @return int
    */
   public function getNumberOfPages() {
-    return ceil(count($this->data) / $this->itemsPerPage);
+      return ceil(count($this->data) / $this->itemsPerPage);
   }
 }

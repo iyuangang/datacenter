@@ -4,7 +4,7 @@ if( !defined('DS') ) define( 'DS' , DIRECTORY_SEPARATOR );
 
 define( 'CROOT' , WROOT . 'core' . DS  );
 
-// define 
+// define
 error_reporting(E_ALL^E_NOTICE);
 ini_set( 'display_errors' , true );
 
@@ -15,22 +15,22 @@ include_once( CROOT . 'medoo.php' );
 $lib_path = WROOT . 'lib' . DS . 'class' . DS . '*.class.php';
 $lib_class = glob($lib_path);
 foreach ( $lib_class as $file_name ) {
-  @include_once( $file_name );
+    @include_once( $file_name );
 }
 
 //lib function include
 @include_once( WROOT . 'lib' . DS . 'function' . DS . 'app.php' );
 
 //
-function transcribe($aList, $aIsTopLevel = true) 
+function transcribe($aList, $aIsTopLevel = true)
 {
-   $gpcList = array();
-   $isMagic = get_magic_quotes_gpc();
-  
-   foreach ($aList as $key => $value) {
-       if (is_array($value)) {
-           $decodedKey = ($isMagic && !$aIsTopLevel)?stripslashes($key):$key;
-           $decodedValue = transcribe($value, false);
+    $gpcList = array();
+    $isMagic = get_magic_quotes_gpc();
+
+    foreach ($aList as $key => $value) {
+        if (is_array($value)) {
+            $decodedKey = ($isMagic && !$aIsTopLevel)?stripslashes($key):$key;
+            $decodedValue = transcribe($value, false);
        } else {
            $decodedKey = stripslashes($key);
            $decodedValue = ($isMagic)?stripslashes($value):$value;
@@ -42,8 +42,8 @@ function transcribe($aList, $aIsTopLevel = true)
 //
 function get( $str )
 {
-	$_GET = transcribe( $_GET );
-	return isset( $_GET[$str] ) ? $_GET[$str] : false;
+    $_GET = transcribe( $_GET );
+    return isset( $_GET[$str] ) ? $_GET[$str] : false;
 }
 
 $c = get('c') ? get('c') : 'index'; //$GLOBALS['c'] = v('c') ? v('c') : c('default_controller');
@@ -55,7 +55,7 @@ $a =  basename(strtolower( $a ));
 $post_fix = '.class.php';
 
 $cont_file = WROOT . 'controller'  . DS . $c . $post_fix;
-$class_name = $c .'Controller' ; 
+$class_name = $c .'Controller' ;
 
 //include model
 $model_file = WROOT . 'model'  . DS . $c . '.model.php';
@@ -64,8 +64,8 @@ $model_file = WROOT . 'model'  . DS . $c . '.model.php';
 //include controller
 if( !file_exists( $cont_file ) )
 {
-	$cont_file = CROOT . 'controller' . DS . $c . $post_fix;
-	if( !file_exists( $cont_file ) ) die('Can\'t find controller file - ' . $c . $post_fix );
+    $cont_file = CROOT . 'controller' . DS . $c . $post_fix;
+    if( !file_exists( $cont_file ) ) die('Can\'t find controller file - ' . $c . $post_fix );
 }
 
 

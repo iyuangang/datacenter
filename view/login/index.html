@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<meta charset="utf-8">
-<?php 
-	$admin_head = WROOT . 'view'  . DS . 'admin_head.html';
-	@include_once( $admin_head ); 
-?>
-
-<body>
-<div class="container">
-	<center>
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<div class="page-header">
-				<h1>
-					后 台 登 陆 页 面
-				</h1>
-			</div>
-			<form role="form" class="form-horizontal" action="?c=login&a=login" method="post" >
-				<fieldset style="width:70%;margin:auto">
-		          <div class="form-group">
-				    <label class="col-md-4 control-label" for="username">用 户 名</label>
-				    <div class="col-md-4">
-			            <input type="text" class="form-control" id="username" name="username" placeholder="输入用户名" />
-			        </div>
-				  </div>
-				  <div class="form-group">
-				    <label class="col-md-4 control-label" for="password">密 码</label>
-				    <div class="col-md-4">
-				    <input type="password" class="form-control" id="password" name="password" placeholder="输入密码" />
-					</div>
-				  </div>
-				  <button type="submit" class="btn btn-primary">登 陆</button>
-      			</fieldset>
-			</form>
-		</div>
-	</div>
-	</center>
-	<?php 
-		$admin_footer = WROOT . 'view'  . DS . 'admin_footer.html';
-		@include_once( $admin_footer ); 
-	?>
-</div>
-
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/scripts.js"></script>
-</body>
+    <meta charset="utf-8">
+    <?php 
+          $admin_head = WROOT . 'view'  . DS . 'admin_head.html';
+          @include_once( $admin_head ); 
+          ?>
+          <body>
+              <div class="container">
+                  <center>
+                      <div class="row clearfix">
+                          <div class="col-md-12 column">
+                              <div class="page-header">
+                                  <h1>
+                                      后 台 登 陆 页 面
+                                  </h1>
+                              </div>
+                              <form role="form" class="form-horizontal" action="?c=login&a=login" method="post" >
+                                  <fieldset style="width:70%;margin:auto">
+                                      <div class="form-group">
+                                          <label class="col-md-4 control-label" for="username">用 户 名</label>
+                                          <div class="col-md-4">
+                                              <input type="text" class="form-control" id="username" name="username" placeholder="输入用户名" />
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label class="col-md-4 control-label" for="password">密 码</label>
+                                          <div class="col-md-4">
+                                              <input type="password" class="form-control" id="password" name="password" placeholder="输入密码" />
+                                          </div>
+                                      </div>
+                                      <button type="submit" class="btn btn-primary">登 陆</button>
+                                  </fieldset>
+                              </form>
+                          </div>
+                      </div>
+                  </center>
+                  <?php 
+                                                            $admin_footer = WROOT . 'view'  . DS . 'admin_footer.html';
+                                                            @include_once( $admin_footer ); 
+                                                            ?>
+              </div>
+              <script type="text/javascript" src="js/jquery.min.js"></script>
+              <script type="text/javascript" src="js/bootstrap.min.js"></script>
+              <script type="text/javascript" src="js/scripts.js"></script>
+          </body>
 </html>
