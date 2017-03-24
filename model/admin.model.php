@@ -10,7 +10,6 @@ class admin extends medoo
         ], [
         "ORDER" => "id"
         ]);
-
         return $datas;
     }
 
@@ -19,7 +18,6 @@ class admin extends medoo
         $last_cat_id = $this->insert("shop_cat", [
                 "catname" => $catname
         ]);
-
         return $last_cat_id;
     }
 
@@ -30,7 +28,6 @@ class admin extends medoo
         ], [
         "id[=]" => $cat['id']
         ]);
-
         return $update_num;
     }
 
@@ -39,7 +36,6 @@ class admin extends medoo
         $delete_num = $this->delete($table, [
                 "id[=]" => $id
         ]);
-
         return $delete_num;
     }
 
@@ -57,7 +53,6 @@ class admin extends medoo
         "ORDER" => "date DESC",
         "ORDER" => "id DESC"
         ]);
-
         return $datas;
     }
 
@@ -74,7 +69,6 @@ class admin extends medoo
         "date[<=]" => $deadline,
         "ORDER" => "date DESC"
         ]);
-
         return $datas;
     }
 
@@ -87,7 +81,6 @@ class admin extends medoo
                 "picture" => $content['picture'],
                 "url" => $content['url'],
         ]);
-
         return $last_content_id;
     }
 
@@ -103,7 +96,6 @@ class admin extends medoo
         ], [
         "id[=]" => $id
         ]);
-
         return $datas;
     }
 
@@ -118,7 +110,6 @@ class admin extends medoo
         ], [
         "id[=]" => $content['id']
         ]);
-
         return $update_num;
     }
 
@@ -129,7 +120,6 @@ class admin extends medoo
         ], [
         "username[=]" => $_SESSION['user']
         ]);
-
         return $update_num;
     }
 
@@ -140,9 +130,9 @@ class admin extends medoo
         ], [
         "id[=]" => $catid
         ]);
-
         return $datas[0]['catname'];
     }
+
     public function cus_list()
     {
         $datas = $this->select("customers", [
@@ -155,7 +145,6 @@ class admin extends medoo
         ], [
         "ORDER" => "cus_no"
         ]);
-
         return $datas;
     }
 
@@ -171,9 +160,9 @@ class admin extends medoo
         ], [
         "cus_no[=]" => $cus_no
         ]);
-
         return $datas;
     }
+
     public function cus_add( $content )
     {
         $last_cus_no = $this->insert("customers", [
@@ -187,20 +176,19 @@ class admin extends medoo
         return $last_cus_no;
     }
 
-    public function cuss_update( $cuss )
+    public function cuss_update( $ecuss )
     {
         $update_cus = $this->update("customers", [
-                "comp_name" => $cuss['comp_name'],
-                "cus_name" => $cuss['cus_name'],
-                "phone_no" => $cuss['phone_no'],
-                "sales_man" => $cuss['sales_man'],
-                "update_time" => $cuss['update_time']
+                "comp_name" => $ecuss['comp_name'],
+                "cus_name" => $ecuss['cus_name'],
+                "phone_no" => $ecuss['phone_no'],
+                "sales_man" => $ecuss['sales_man'],
+                "update_time" => $ecuss['update_time']
         ], [
-        "cus_no[=]" => $cuss['cus_no']
+        "cus_no[=]" => $ecuss['cus_no']
         ]);
         return $update_cus;
     }
-
 
     public function cus_delete( $table , $id )
     {
@@ -220,6 +208,7 @@ class admin extends medoo
         $datas = $this->query("SELECT a.sales_date as sales_date,sum(b.buy_price*a.sales_qty) as buy_amnt,sum(a.sales_price*a.sales_qty) as sales_amnt,(sum(a.sales_price*a.sales_qty)-sum(b.buy_price*a.sales_qty))/1.17 as net_margin,((sum(a.sales_price*a.sales_qty)-sum(b.buy_price*a.sales_qty))/1.17)/sum(a.sales_price*a.sales_qty) as net_margin_rate FROM sales a,items b WHERE a.item_no=b.item_no group by a.sales_date order by a.sales_date desc")->fetchALL();
         return $datas;
     }
+
     public function ord_list()
     {
         $datas = $this->select("orders", [
@@ -237,7 +226,6 @@ class admin extends medoo
         ]);
         return $datas;
     }
-
 
     public function sal_list()
     {
@@ -269,15 +257,14 @@ class admin extends medoo
                 "sales_price" => $content['sales_price'],
                 "sales_man" => $content['sales_man']
         ]);
-
         return $last_sales_id;
     }
+
     public function sales_delete( $table , $id )
     {
         $delete_num = $this->delete($table, [
                 "sales_no[=]" => $id
         ]);
-
         return $delete_num;
     }
 
@@ -293,15 +280,14 @@ class admin extends medoo
                 "receive_price" => $content['receive_price'],
                 "sales_man" => $content['sales_man']
         ]);
-
         return $last_orders_id;
     }
+
     public function orders_delete( $table , $id )
     {
         $delete_num = $this->delete($table, [
                 "order_no[=]" => $id
         ]);
-
         return $delete_num;
     }
 
@@ -313,7 +299,6 @@ class admin extends medoo
         ], [
         "ORDER" => "sales_man_no"
         ]);
-
         return $datas;
     }
 }

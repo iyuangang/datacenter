@@ -22,7 +22,6 @@ class indexController extends medoo
         $datas['title'] = 'TTMAI DATA CENTER';
         $database = new index();
         $datas['cats'] = $database->get_cats();
-
         $this->display( $datas );
     }
 
@@ -33,7 +32,6 @@ class indexController extends medoo
         $datas['catid'] = $catid;
         $database = new index();
         $datas['cats'] = $database->get_cats();
-
         $this->display( $datas );
     }
 
@@ -53,9 +51,7 @@ class indexController extends medoo
         }
         $database = new index();
         $datas['contents'] = $database->get_contents( $time );
-
         $data = $datas['contents'];
-
         $result = $database->get_more( $data );
         echo $result;
     }
@@ -65,22 +61,17 @@ class indexController extends medoo
         $catid = get('id');
         $database = new index();
         $datas['contents'] = $database->cat_contents( $catid );
-
         $data = $datas['contents'];
         //print_r($data);
-
         $result = $database->get_more( $data );
         echo $result;
     }
         function custumers()
         {
-
             $database = new index();
             $datas['all_customers'] = $database->customers( $cus_no );
-
             $data = $datas['contents'];
             //print_r($data);
-
             $result = $database->get_more( $data );
             echo $result;
     }

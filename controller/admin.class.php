@@ -295,21 +295,21 @@ function editcus()
     $cus_no = addslashes($_GET['cus_no']);
     $database = new admin();
     $datas['a'] = 'cus';
-    $datas['cuss'] = $database->get_cuss_by_no( $cus_no );
+    $datas['ecuss'] = $database->get_cuss_by_no( $cus_no );
     $this->display( $datas );
         }
 
 function save_cuss()
 {
     header("Content-type: text/html; charset=utf-8");
-    $cuss['cus_no'] = addslashes($_POST['cus_no']);
-    $cuss['comp_name'] = addslashes($_POST['comp_name']);
-    $cuss['cus_name'] = addslashes($_POST['cus_name']);
-    $cuss['phone_no'] = addslashes($_POST['phone_no']);
-    $cuss['sales_man'] = addslashes($_POST['sales_man']);
-    $cuss['update_time'] = addslashes($_POST['update_time']);
+    $ecuss['cus_no'] = addslashes($_POST['cus_no']);
+    $ecuss['comp_name'] = addslashes($_POST['comp_name']);
+    $ecuss['cus_name'] = addslashes($_POST['cus_name']);
+    $ecuss['phone_no'] = addslashes($_POST['phone_no']);
+    $ecuss['sales_man'] = addslashes($_POST['sales_man']);
+    $ecuss['update_time'] = addslashes($_POST['update_time']);
     $database = new admin();
-    $result = $database->cuss_update( $cuss );
+    $result = $database->cuss_update( $ecuss );
     if ($result) {
         echo "<script>";
         echo "alert('编辑cus成功');";
