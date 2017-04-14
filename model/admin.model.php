@@ -5,10 +5,10 @@ class admin extends medoo
     public function cat_list()
     {
         $datas = $this->select("shop_cat", [
-                "id",
-                "catname"
+            "id",
+            "catname"
         ], [
-        "ORDER" => "id"
+            "ORDER" => "id"
         ]);
         return $datas;
     }
@@ -16,7 +16,7 @@ class admin extends medoo
     public function cat_add( $catname )
     {
         $last_cat_id = $this->insert("shop_cat", [
-                "catname" => $catname
+            "catname" => $catname
         ]);
         return $last_cat_id;
     }
@@ -24,9 +24,9 @@ class admin extends medoo
     public function cat_update( $cat )
     {
         $update_num = $this->update("shop_cat", [
-                "catname" => $cat['catname']
+            "catname" => $cat['catname']
         ], [
-        "id[=]" => $cat['id']
+            "id[=]" => $cat['id']
         ]);
         return $update_num;
     }
@@ -34,7 +34,7 @@ class admin extends medoo
     public function data_delete( $table , $id )
     {
         $delete_num = $this->delete($table, [
-                "id[=]" => $id
+            "id[=]" => $id
         ]);
         return $delete_num;
     }
@@ -42,16 +42,16 @@ class admin extends medoo
     public function content_list( $deadline )
     {
         $datas = $this->select("shop_content", [
-                "id",
-                "title",
-                "cat",
-                "date",
-                "picture",
-                "url"
+            "id",
+            "title",
+            "cat",
+            "date",
+            "picture",
+            "url"
         ], [
-        "date[>]" => $deadline,
-        "ORDER" => "date DESC",
-        "ORDER" => "id DESC"
+            "date[>]" => $deadline,
+            "ORDER" => "date DESC",
+            "ORDER" => "id DESC"
         ]);
         return $datas;
     }
@@ -59,15 +59,15 @@ class admin extends medoo
     public function dead_list( $deadline )
     {
         $datas = $this->select("shop_content", [
-                "id",
-                "title",
-                "cat",
-                "date",
-                "picture",
-                "url"
+            "id",
+            "title",
+            "cat",
+            "date",
+            "picture",
+            "url"
         ], [
-        "date[<=]" => $deadline,
-        "ORDER" => "date DESC"
+            "date[<=]" => $deadline,
+            "ORDER" => "date DESC"
         ]);
         return $datas;
     }
@@ -75,11 +75,11 @@ class admin extends medoo
     public function content_add( $content )
     {
         $last_content_id = $this->insert("shop_content", [
-                "title" => $content['title'],
-                "cat" => $content['cat'],
-                "date" => $content['date'],
-                "picture" => $content['picture'],
-                "url" => $content['url'],
+            "title" => $content['title'],
+            "cat" => $content['cat'],
+            "date" => $content['date'],
+            "picture" => $content['picture'],
+            "url" => $content['url'],
         ]);
         return $last_content_id;
     }
@@ -87,14 +87,14 @@ class admin extends medoo
     public function get_content_by_id( $id )
     {
         $datas = $this->select("shop_content", [
-                "id",
-                "title",
-                "cat",
-                "date",
-                "picture",
-                "url"
+            "id",
+            "title",
+            "cat",
+            "date",
+            "picture",
+            "url"
         ], [
-        "id[=]" => $id
+            "id[=]" => $id
         ]);
         return $datas;
     }
@@ -102,13 +102,13 @@ class admin extends medoo
     public function content_update( $content )
     {
         $update_num = $this->update("shop_content", [
-                "title" => $content['title'],
-                "cat" => $content['cat'],
-                "date" => $content['date'],
-                "picture" => $content['picture'],
-                "url" => $content['url']
+            "title" => $content['title'],
+            "cat" => $content['cat'],
+            "date" => $content['date'],
+            "picture" => $content['picture'],
+            "url" => $content['url']
         ], [
-        "id[=]" => $content['id']
+            "id[=]" => $content['id']
         ]);
         return $update_num;
     }
@@ -116,9 +116,9 @@ class admin extends medoo
     public function passwd_update( $passwd )
     {
         $update_num = $this->update("shop_user", [
-                "password" => $passwd
+            "password" => $passwd
         ], [
-        "username[=]" => $_SESSION['user']
+            "username[=]" => $_SESSION['user']
         ]);
         return $update_num;
     }
@@ -126,9 +126,9 @@ class admin extends medoo
     public function cat_to_name( $catid )
     {
         $datas = $this->select("shop_cat", [
-                "catname"
+            "catname"
         ], [
-        "id[=]" => $catid
+            "id[=]" => $catid
         ]);
         return $datas[0]['catname'];
     }
@@ -136,14 +136,14 @@ class admin extends medoo
     public function cus_list()
     {
         $datas = $this->select("customers", [
-                "cus_no",
-                "comp_name",
-                "cus_name",
-                "phone_no",
-                "sales_man",
-                "update_time"
+            "cus_no",
+            "comp_name",
+            "cus_name",
+            "phone_no",
+            "sales_man",
+            "update_time"
         ], [
-        "ORDER" => "cus_no"
+            "ORDER" => "cus_no"
         ]);
         return $datas;
     }
@@ -151,14 +151,14 @@ class admin extends medoo
     public function get_cuss_by_no( $cus_no )
     {
         $datas = $this->select("customers", [
-                "cus_no",
-                "comp_name",
-                "cus_name",
-                "phone_no",
-                "sales_man",
-                "update_time"
+            "cus_no",
+            "comp_name",
+            "cus_name",
+            "phone_no",
+            "sales_man",
+            "update_time"
         ], [
-        "cus_no[=]" => $cus_no
+            "cus_no[=]" => $cus_no
         ]);
         return $datas;
     }
@@ -166,12 +166,12 @@ class admin extends medoo
     public function cus_add( $content )
     {
         $last_cus_no = $this->insert("customers", [
-                "cus_no" => $content['cus_no'],
-                "comp_name" => $content['comp_name'],
-                "cus_name" => $content['cus_name'],
-                "phone_no" => $content['phone_no'],
-                "sales_man" => $content['sales_man'],
-                "update_time" => $content['update_time']
+            "cus_no" => $content['cus_no'],
+            "comp_name" => $content['comp_name'],
+            "cus_name" => $content['cus_name'],
+            "phone_no" => $content['phone_no'],
+            "sales_man" => $content['sales_man'],
+            "update_time" => $content['update_time']
         ]);
         return $last_cus_no;
     }
@@ -179,13 +179,13 @@ class admin extends medoo
     public function cuss_update( $ecuss )
     {
         $update_cus = $this->update("customers", [
-                "comp_name" => $ecuss['comp_name'],
-                "cus_name" => $ecuss['cus_name'],
-                "phone_no" => $ecuss['phone_no'],
-                "sales_man" => $ecuss['sales_man'],
-                "update_time" => $ecuss['update_time']
+            "comp_name" => $ecuss['comp_name'],
+            "cus_name" => $ecuss['cus_name'],
+            "phone_no" => $ecuss['phone_no'],
+            "sales_man" => $ecuss['sales_man'],
+            "update_time" => $ecuss['update_time']
         ], [
-        "cus_no[=]" => $ecuss['cus_no']
+            "cus_no[=]" => $ecuss['cus_no']
         ]);
         return $update_cus;
     }
@@ -193,7 +193,7 @@ class admin extends medoo
     public function cus_delete( $table , $id )
     {
         $delete_num = $this->delete($table, [
-                "cus_no[=]" => $id
+            "cus_no[=]" => $id
         ]);
         return $delete_num;
     }
@@ -212,17 +212,17 @@ class admin extends medoo
     public function ord_list()
     {
         $datas = $this->select("orders", [
-                "order_no",
-                "supplier_name",
-                "order_date",
-                "item_no",
-                "item_name",
-                "receive_qty",
-                "receive_price",
-                "sales_man"
+            "order_no",
+            "supplier_name",
+            "order_date",
+            "item_no",
+            "item_name",
+            "receive_qty",
+            "receive_price",
+            "sales_man"
         ], [
-        "ORDER" => "order_no DESC",
-        "LIMIT" => 10
+            "ORDER" => "order_no DESC",
+            "LIMIT" => 10
         ]);
         return $datas;
     }
@@ -230,17 +230,17 @@ class admin extends medoo
     public function sal_list()
     {
         $datas = $this->select("sales", [
-                "sales_no",
-                "sales_date",
-                "comp_name",
-                "item_no",
-                "item_name",
-                "sales_qty",
-                "sales_price",
-                "sales_man"
+            "sales_no",
+            "sales_date",
+            "comp_name",
+            "item_no",
+            "item_name",
+            "sales_qty",
+            "sales_price",
+            "sales_man"
         ], [
-        "ORDER" => "sales_no DESC",
-        "LIMIT" => 10
+            "ORDER" => "sales_no DESC",
+            "LIMIT" => 10
         ]);
         return $datas;
     }
@@ -248,14 +248,14 @@ class admin extends medoo
     public function sales_add( $content )
     {
         $last_sales_id = $this->insert("sales", [
-                "sales_no" => $content['sales_no'],
-                "sales_date" => $content['sales_date'],
-                "comp_name" => $content['comp_name'],
-                "item_no" => $content['item_no'],
-                "item_name" => $content['item_name'],
-                "sales_qty" => $content['sales_qty'],
-                "sales_price" => $content['sales_price'],
-                "sales_man" => $content['sales_man']
+            "sales_no" => $content['sales_no'],
+            "sales_date" => $content['sales_date'],
+            "comp_name" => $content['comp_name'],
+            "item_no" => $content['item_no'],
+            "item_name" => $content['item_name'],
+            "sales_qty" => $content['sales_qty'],
+            "sales_price" => $content['sales_price'],
+            "sales_man" => $content['sales_man']
         ]);
         return $last_sales_id;
     }
@@ -263,7 +263,7 @@ class admin extends medoo
     public function sales_delete( $table , $id )
     {
         $delete_num = $this->delete($table, [
-                "sales_no[=]" => $id
+            "sales_no[=]" => $id
         ]);
         return $delete_num;
     }
@@ -271,14 +271,14 @@ class admin extends medoo
     public function orders_add( $content )
     {
         $last_orders_id = $this->insert("orders", [
-                "order_no" => $content['order_no'],
-                "supplier_name" => $content['supplier_name'],
-                "order_date" => $content['order_date'],
-                "item_no" => $content['item_no'],
-                "item_name" => $content['item_name'],
-                "receive_qty" => $content['receive_qty'],
-                "receive_price" => $content['receive_price'],
-                "sales_man" => $content['sales_man']
+            "order_no" => $content['order_no'],
+            "supplier_name" => $content['supplier_name'],
+            "order_date" => $content['order_date'],
+            "item_no" => $content['item_no'],
+            "item_name" => $content['item_name'],
+            "receive_qty" => $content['receive_qty'],
+            "receive_price" => $content['receive_price'],
+            "sales_man" => $content['sales_man']
         ]);
         return $last_orders_id;
     }
@@ -286,7 +286,7 @@ class admin extends medoo
     public function orders_delete( $table , $id )
     {
         $delete_num = $this->delete($table, [
-                "order_no[=]" => $id
+            "order_no[=]" => $id
         ]);
         return $delete_num;
     }
@@ -294,10 +294,10 @@ class admin extends medoo
     public function sales_man_list()
     {
         $datas = $this->select("salesman", [
-                "sales_man_no",
-                "sales_man_name"
+            "sales_man_no",
+            "sales_man_name"
         ], [
-        "ORDER" => "sales_man_no"
+            "ORDER" => "sales_man_no"
         ]);
         return $datas;
     }
