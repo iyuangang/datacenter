@@ -419,13 +419,6 @@ class adminController extends medoo
         header("Content-type: text/html; charset=utf-8");
     }
 
-    function sales_status()
-        {
-            $datacenter= new admin();
-            $datas['a']=__FUNCTION__;
-            $datas['salesman']=$database->sales_daily();
-            $this->display($datas);
-}
 
     function sales_man()
     {
